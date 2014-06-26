@@ -1,0 +1,13 @@
+{
+  "name": "scalipster-browser-app",
+  "version": "0.0.0",
+  "authors": [
+    "Andreas Drobisch"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.2.18",
+    "angular-route": "~1.2.18",
+    "jquery": "~2.1.1"
+  }
+}
