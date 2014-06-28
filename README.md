@@ -14,7 +14,7 @@ Getting Started
 
 Execute
 ```
-npm install
+npm install # you might need to be root to install everything
 bowser install
 ```
 in *src/main/web*
@@ -24,7 +24,7 @@ To run the with hot-compile and reload:
     sbt watch
 ```
 
-To build the distribution package in target/unviveral:
+To build the distribution package in *target/unviveral*:
 ```
     sbt dist
 ```
