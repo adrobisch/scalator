@@ -19,6 +19,7 @@ module.exports = function (grunt) {
 
     config: {
       sources: 'src/js',
+      css: 'src/css',
       dist: '../../../target/scala-2.11/classes/web',
       assets: 'assets',
       tests: 'test',
@@ -40,11 +41,10 @@ module.exports = function (grunt) {
     less: {
       dist: {
         options: {
-          paths: ["src/css"],
+          paths: ["<%= config.css %>"],
           cleancss: true,
           modifyVars: {
-            imgPath: '"http://mycdn.com/path/to/images"',
-            bgColor: 'red'
+            imgPath: 'images'
           }
         },
         files: {
@@ -129,24 +129,18 @@ module.exports = function (grunt) {
               '**/*'
             ],
             dest: '<%= config.dist %>'
+          },
+          // bower dist folders
+          {
+            expand: true,
+            cwd: '<%= config.bower_components %>',
+            src: [
+              '**/dist/**/*'
+            ],
+            dest: '<%= config.dist %>'
           }
-        ]
-      }
-    },
 
-    connect: {
-      options: {
-        port: 9000,
-        livereload: 19000,
-        hostname: 'localhost'
-      },
-      livereload: {
-        options: {
-          open: true,
-          base: [
-            '<%= config.dist %>'
-          ]
-        }
+        ]
       }
     },
 
@@ -157,22 +151,20 @@ module.exports = function (grunt) {
           '<%= config.assets %>/css/**/*',
           '<%= config.sources %>/*.html'
         ],
-        tasks: [ 'copy:resources' ]
+        tasks: ['copy:resources']
       },
-      livereload: {
-        options: {
-          livereload: '<%= connect.options.livereload %>'
-        },
+      styles : {
         files: [
-          '<%= config.dist %>/**/*.*'
-        ]
+          '<%= config.css %>/*.less'
+        ],
+        tasks: ['less']
       }
     }
   });
 
   grunt.registerTask('test', 'karma:single');
-  grunt.registerTask('build', ['less', 'browserify:app', 'copy', 'uglify' ]);
-  grunt.registerTask('serve', [
+  grunt.registerTask('build', ['less', 'browserify:app', 'copy', 'uglify']);
+  grunt.registerTask('rebuild', [
     'build',
     'browserify:watch',
     'watch'

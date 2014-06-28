@@ -3,9 +3,56 @@
   <head>
     <meta charset="utf-8">
     <title>scalator</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/scalator.css">
   </head>
   <body>
-    <div data-ng-view></div>
+  <!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top">
+	    <div class="container">
+	        <div class="navbar-header">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="#">scalator</a>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	            <ul class="nav navbar-nav">
+	                <li data-ng-class="activeClass('/home')" data-ng-click="goto('/home')"><a>Home</a></li>
+	            </ul>
+
+	            <div class="navbar-form navbar-right">
+	                <div class="btn-group">
+	                    <button type="button" data-ng-click="logout()" class="btn btn-default"><i class="glyphicon glyphicon-off"></i></button>
+	                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+	                        <span class="caret"></span>
+	                        <span class="sr-only">Toggle Dropdown</span>
+	                    </button>
+	                    <ul class="dropdown-menu" role="menu">
+	                        <li><a href="#/settings"><i class="glyphicon glyphicon-check"></i> Settings</a></li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>       
+	        <!--/.nav-collapse -->
+	    </div>
+	</div>
+	<div class="container">
+	    <div class="alerts">
+	        <div data-ng-cloak
+	             data-alert
+	             class="alert alert-{{alert.type}} animation"
+	             data-ng-repeat="alert in alerts"
+	             data-type="{{alert.type}}"
+	             data-close="alert.close()">
+	            <h4>{{ alert.title }}</h4>
+	            {{alert.msg}}
+	        </div>
+	    </div>
+	    <div data-ng-view></div>
+	</div>
 
     <script src="app.js"></script>
   </body>

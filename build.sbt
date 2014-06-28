@@ -100,6 +100,6 @@ ScoverageSbtPlugin.instrumentSettings
 
 ScoverageKeys.highlighting := true
 
-addCommandAlias("dist", "universal:package-bin")
+addCommandAlias("dist", ";clean;universal:package-bin")
 
 addCommandAlias("watch", ";gruntWatch;~reStart")

@@ -7,6 +7,7 @@ object Grunt extends Build {
   val webPath = Path("./src/main/web").asFile
 
   def runBuild = {
+    Process("bower install", webPath).!
     Process("grunt build", webPath).!
   }
 
@@ -14,7 +15,7 @@ object Grunt extends Build {
     if (Grunt.gruntProcess.isDefined) {
       Grunt.gruntProcess.get.destroy()
     }
-    val gruntProcess = Process("grunt serve", webPath).run()
+    val gruntProcess = Process("grunt rebuild", webPath).run()
     Grunt.gruntProcess = Some(gruntProcess)
   }
 
