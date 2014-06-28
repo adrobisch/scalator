@@ -24,7 +24,7 @@ To run the with hot-compile and reload:
     sbt watch
 ```
 
-To build the distribution package in target/unviveral:
+To build the distribution package in *target/unviveral*:
 ```
     sbt dist
 ```
