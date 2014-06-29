@@ -1,3 +1,5 @@
+![scalator_logo](scalator_big.png "scalator")
+
 Scalator
 ========
 
