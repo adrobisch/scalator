@@ -40,18 +40,7 @@
 	    </div>
 	</div>
 	<div class="container">
-	    <div class="alerts">
-	        <div data-ng-cloak
-	             data-alert
-	             class="alert alert-{{alert.type}} animation"
-	             data-ng-repeat="alert in alerts"
-	             data-type="{{alert.type}}"
-	             data-close="alert.close()">
-	            <h4>{{ alert.title }}</h4>
-	            {{alert.msg}}
-	        </div>
-	    </div>
-	    <div data-ng-view></div>
+	    <div class="angular-view" data-ng-view></div>
 	</div>
 
     <script src="app.js"></script>

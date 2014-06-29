@@ -2,21 +2,25 @@ import sbt._
 import Keys._
 
 object Grunt extends Build {
-  var gruntProcess: Option[Process] = None
+  var buildProcess: Option[Process] = None
+  var watchProcess: Option[Process] = None
 
   val webPath = Path("./src/main/web").asFile
 
   def runBuild = {
+    Process("npm install", webPath).!
     Process("bower install", webPath).!
-    Process("grunt build", webPath).!
+
+    buildProcess = Some(Process("grunt build", webPath).run())
+    buildProcess.get.exitValue()
+    buildProcess = None
   }
 
   def runWatch = {
-    if (Grunt.gruntProcess.isDefined) {
-      Grunt.gruntProcess.get.destroy()
-    }
-    val gruntProcess = Process("grunt rebuild", webPath).run()
-    Grunt.gruntProcess = Some(gruntProcess)
+    if (Grunt.watchProcess.isDefined) Grunt.watchProcess.get.destroy()
+
+    val gruntRebuild = Process("grunt rebuild", webPath).run()
+    Grunt.watchProcess = Some(gruntRebuild)
   }
 
 }

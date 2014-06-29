@@ -84,9 +84,9 @@ artifactName := { (sv: ScalaVersion, module: ModuleID, artifact: Artifact) =>
   artifact.name + artifact.extension
 }
 
-val gruntBuild = taskKey[Int]("Grunt")
+val gruntBuild = taskKey[Unit]("grunt build task")
 
-val gruntWatch = taskKey[Unit]("Grunt")
+val gruntWatch = taskKey[Unit]("grunt watch task")
 
 gruntBuild := Grunt.runBuild
 

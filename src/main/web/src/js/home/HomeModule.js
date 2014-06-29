@@ -9,12 +9,10 @@ var homeModule = angular.module('home', []);
 homeModule.controller("HomeController", HomeController);
 
 homeModule.config(['$routeProvider', function($routeProvider) {
-
   $routeProvider.when('/home', {
     controller: HomeController,
     template: fs.readFileSync(__dirname + '/home.html', 'utf-8')
   });
-
 }]);
 
 module.exports = homeModule;
