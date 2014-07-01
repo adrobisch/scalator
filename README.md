@@ -16,7 +16,7 @@ Getting Started
 
 Execute
 ```
-npm install # you might need to be root to install everything
+npm install
 bowser install
 ```
 in *src/main/web*
