@@ -8,7 +8,7 @@
   </head>
   <body>
   <!-- Fixed navbar -->
-	<div class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar navbar-default navbar-fixed-top" data-ng-controller="NavbarController">
 	    <div class="container">
 	        <div class="navbar-header">
 	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,7 +23,7 @@
 	                <li data-ng-class="activeClass('/home')" data-ng-click="goto('/home')"><a>Home</a></li>
 	            </ul>
 
-	            <div class="navbar-form navbar-right">
+	            <div class="navbar-form navbar-right" data-ng-controller="LoginController">
 	                <div class="btn-group">
 	                    <button type="button" data-ng-click="logout()" class="btn btn-default"><i class="glyphicon glyphicon-off"></i></button>
 	                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -40,6 +40,17 @@
 	    </div>
 	</div>
 	<div class="container">
+		<div class="alerts">
+	        <div data-ng-cloak
+	             data-alert
+	             class="alert alert-{{alert.type}} animation"
+	             data-ng-repeat="alert in alerts"
+	             data-type="{{alert.type}}"
+	             data-close="alert.close()">
+	            <h4>{{ alert.title }}</h4>
+	            {{alert.msg}}
+	        </div>
+	    </div>
 	    <div class="angular-view" data-ng-view></div>
 	</div>
 

@@ -165,7 +165,6 @@ module.exports = function (grunt) {
   grunt.registerTask('test', 'karma:single');
   grunt.registerTask('build', ['less', 'browserify:app', 'copy', 'uglify']);
   grunt.registerTask('rebuild', [
-    'build',
     'browserify:watch',
     'watch'
   ]);

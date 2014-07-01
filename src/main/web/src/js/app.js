@@ -10,7 +10,8 @@ var apiService = require('./common/ApiService');
 var app = angular.module('app', [
   angularRoute.name,
   require('./login/LoginModule').name,
-  require('./home/HomeModule').name
+  require('./home/HomeModule').name,
+  require('./navbar/NavbarModule').name
 ]);
 
 app.factory('authInterceptor', authInterceptor);

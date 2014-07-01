@@ -5,6 +5,7 @@ import sbt.Keys._
 import sbt.ScalaVersion
 import scala.Some
 import spray.revolver.RevolverPlugin.Revolver
+import spray.revolver.RevolverPlugin.Revolver._
 import net.virtualvoid.sbt.graph.Plugin
 import com.typesafe.sbt.packager.debian.Keys.packageDescription
 import com.typesafe.sbt.packager.debian.Keys.maintainer
@@ -94,6 +95,8 @@ gruntWatch := Grunt.runWatch
 
 (compile in Compile) <<= (compile in Compile) dependsOn gruntBuild
 
+reStart <<= reStart dependsOn gruntWatch
+
 parallelExecution in Test := false
 
 ScoverageSbtPlugin.instrumentSettings
@@ -102,4 +105,4 @@ ScoverageKeys.highlighting := true
 
 addCommandAlias("dist", ";clean;universal:package-bin")
 
-addCommandAlias("watch", ";gruntWatch;~reStart")
+addCommandAlias("watch", "~reStart")
