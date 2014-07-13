@@ -37,10 +37,6 @@ scalaVersion  := "2.11.1"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
-resolvers ++= Seq(
-  "spray repo" at "http://repo.spray.io"
-)
-
 val dbDependencies = Seq(
   "org.flywaydb" % "flyway-core" % "3.0",
   "com.h2database" % "h2" % "1.3.175",
@@ -52,7 +48,7 @@ val scalaTesting = Seq(
   "org.specs2"          %%  "specs2"        % "2.3.11" % "test",
   "org.scalatest" %% "scalatest" % "2.2.0" % "test",
   "com.typesafe.akka"   %%  "akka-testkit"  % "2.3.2" % "test",
-  "io.spray"            %%   "spray-testkit" % "1.3.1-20140423" % "test"
+  "io.spray"            %%   "spray-testkit" % "1.3.1" % "test"
 )
 
 val javaTesting = Seq(
@@ -68,10 +64,10 @@ libraryDependencies ++= Seq(
   "org.scaldi" %% "scaldi" % "0.3.2",
   "com.typesafe.slick" %% "slick" % "2.1.0-M2",
   "org.json4s" %% "json4s-native" % "3.2.9",
-  "io.spray"            %%   "spray-can"     % "1.3.1-20140423",
-  "io.spray"            %%   "spray-httpx"     % "1.3.1-20140423",
-  "io.spray"            %%   "spray-routing" % "1.3.1-20140423",
-  "io.spray"            %%   "spray-caching" % "1.3.1-20140423",
+  "io.spray"            %%   "spray-can"     % "1.3.1",
+  "io.spray"            %%   "spray-httpx"     % "1.3.1",
+  "io.spray"            %%   "spray-routing" % "1.3.1",
+  "io.spray"            %%   "spray-caching" % "1.3.1",
   "com.typesafe.akka"   %%  "akka-actor"    % "2.3.2"
 ) ++ dbDependencies ++ scalaTesting ++ javaTesting
 

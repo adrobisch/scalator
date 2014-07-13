@@ -1,17 +1,17 @@
 {
-  "name": "scalipster-browser-app",
+  "name": "scalator-browser-app",
   "version": "0.0.0",
-  "description": "The client part of scalipster",
+  "description": "The client part of scalator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adrobisch/scalipster"
+    "url": "https://github.com/adrobisch/scalator"
   },
   "keywords": [
     "scala",
     "angularjs"
   ],
   "author": "Andreas Drobisch",
-  "homepage": "https://github.com/adrobisch/scalipster",
+  "homepage": "https://github.com/adrobisch/scalator",
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-watch": "~0.5.0",
